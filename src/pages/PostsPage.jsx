@@ -53,8 +53,8 @@ function PostsPage() {
     // Filter news based on the tag ID from the URL when the news data is fetched
     useEffect(() => {
         if (tagId) {
-            const filtered = allNews.filter(news =>
-                news.tags && news.tags.some(tag => tag.id.toString() === tagId)
+            const filtered = allNews?.filter(news =>
+                news?.tags && news?.tags.some(tag => tag.id.toString() === tagId)
             );
             setFilteredNews(filtered);
             setCurrentPage(1);
@@ -86,23 +86,23 @@ function PostsPage() {
     // Handle tag click
     const handleTagClick = (tagId) => {
         setSelectedTag(tagId);
-        const filtered = allNews.filter((item) =>
-            item.tags && item.tags.some(tag => tag.id === tagId)
+        const filtered = allNews?.filter((item) =>
+            item?.tags && item?.tags.some(tag => tag.id === tagId)
         );
         setFilteredNews(filtered);
     };
 
     // Filter news by popularity
-    const popularNews = allNews.filter(news => news.popular === true);
+    const popularNews = allNews?.filter(news => news.popular === true);
 
     // Extract unique tags from popular news
-    const popularTags = Array.from(new Set(popularNews.flatMap(news => news.tags.map(tag => tag.id))))
-        .map(id => allTags.find(tag => tag.id === id));
+    const popularTags = Array.from(new Set(popularNews?.flatMap(news => news?.tags.map(tag => tag.id))))
+        .map(id => allTags?.find(tag => tag.id === id));
 
     // Pagination calculations
     const indexOfLastTender = currentPage * itemsPerPage;
     const indexOfFirstTender = indexOfLastTender - itemsPerPage;
-    const currentNews = filteredNews.slice(indexOfFirstTender, indexOfLastTender);
+    const currentNews = filteredNews?.slice(indexOfFirstTender, indexOfLastTender);
     const totalPages = Math.ceil(filteredNews.length / itemsPerPage);
 
     // send email address for subscribe
@@ -142,11 +142,11 @@ function PostsPage() {
                     <Col xs={12} md={8}>
                         <Row className="mt-4">
                             {/*{filteredNews.map((item) => {*/}
-                            {currentNews.map((item) => {
-                                const day = new Date(item.createdAt).toLocaleDateString('RO', {
+                            {currentNews?.map((item) => {
+                                const day = new Date(item?.createdAt).toLocaleDateString('RO', {
                                     day: 'numeric',
                                 });
-                                const month = new Date(item.createdAt).toLocaleDateString('RO', {
+                                const month = new Date(item?.createdAt).toLocaleDateString('RO', {
                                     month: 'long',
                                 });
                                 return (
@@ -221,8 +221,7 @@ function PostsPage() {
                             {t('POPULAR_TAGS')}
                             <br/>
                             <br/>
-                            {/*{allTags.map((item) => (*/}
-                            {popularTags.map((item) => (
+                            {popularTags?.map((item) => (
                                 <span key={item.id}>
                                     <Button
                                         variant={"outline-success"}
@@ -241,15 +240,12 @@ function PostsPage() {
                             <br/>
                             <br/>
                         </div>
-                            {/*{allNews*/}
-                            {/*    .filter((item) => item.popular === 'true')*/}
-                            {/*    .map((item) => {*/}
-                            {popularNews.map((item) => {
+                            {popularNews?.map((item) => {
                                 {
-                                    const day = new Date(item.createdAt).toLocaleDateString('RO', {
+                                    const day = new Date(item?.createdAt).toLocaleDateString('RO', {
                                         day: 'numeric',
                                     });
-                                    const month = new Date(item.createdAt).toLocaleDateString('RO', {
+                                    const month = new Date(item?.createdAt).toLocaleDateString('RO', {
                                         month: 'long',
                                     });
                                     return (
