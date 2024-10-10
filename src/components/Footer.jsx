@@ -10,6 +10,7 @@ function Footer() {
 <>
         <div style={{paddingTop: '40px', textAlign: 'center'}}>
             <br/>
+            <Container>
             <br/>
             <div style={{paddingTop: '80px'}}>
                 <Row>
@@ -61,6 +62,7 @@ function Footer() {
                 <h6 className={'text-center'}> © 2024 Gradina Zoologica. {t('Все права защищены')} </h6>
                 <br/>
             </div>
+            </Container>
         </div>
     <img src={'/Forest.png'} alt={'forest'} style={{ width: '100%', height: 'auto' }}/>
 </>
