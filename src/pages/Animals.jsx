@@ -44,7 +44,7 @@ const Animals = () => {
 
     // Filter animals by selected type
     const filteredAnimals = selectedType
-        ? allAnimalsData?.rows.filter(animal => animal.types.some(animal => animal.id === selectedType))
+        ? allAnimalsData?.rows.filter(animal => animal?.types.some(animal => animal.id === selectedType))
         : allAnimalsData?.rows;
 
     // Calculate the animals to be displayed on the current page
