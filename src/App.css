@@ -163,14 +163,17 @@
 
 .background_green {
     background: url('/home_green.svg') no-repeat center top;
+    background-size: contain;
 }
 
 .background_white {
     background: url('/home_white_1.png') no-repeat center bottom;
+    background-size: cover;
 }
 
 .background_white2 {
     background: url('/home_white.png') no-repeat center top;
+    background-size: cover;
 }
 
 .bg_banner {
@@ -229,6 +232,7 @@
 
 .bg_shape2 {
     background: url('/shape2.png') no-repeat;
+    background-size: cover;
 }
 
 .card1_style {
