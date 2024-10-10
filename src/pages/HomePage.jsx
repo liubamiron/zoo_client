@@ -279,6 +279,7 @@ const HomePage = () => {
             <div className={'z2'}>
                 <div className={'background_green'}>
                     <div className={'background_white'}>
+                        <Container>
                             <div style={{textAlign: 'center'}}>
                                 <h1 className={'f_montserrat title pad_top_150_5'}>
                                     {t('GARDEN')} <br/> {t('ZOOLOGIC')}
@@ -300,6 +301,7 @@ const HomePage = () => {
                             <div className={'marg_180_25'}>
                                 <CardsContainer/>
                             </div>
+                        </Container>
                     </div>
                 </div>
             </div>
