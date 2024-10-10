@@ -88,7 +88,7 @@ const Animals = () => {
                     >
                         {t('ALL')}
                     </Button>
-                    {typeAnimals.map((type) => (
+                    {typeAnimals?.map((type) => (
                         <Button
                             key={type.id}
                             variant="outline-success"
@@ -101,7 +101,7 @@ const Animals = () => {
                 </div>
                 <div className={'container mt-5'}>
                     <Row>
-                        {currentAnimals.map((animal) => (
+                        {currentAnimals?.map((animal) => (
                             <Col xs={12} md={4} key={animal.id}> {/* Changed to 4 for 3 items per row */}
                                 <Link to={`/animals/${animal.id}`}
                                       style={{textDecoration: 'none'}}> {/* Wrap Card with Link */}

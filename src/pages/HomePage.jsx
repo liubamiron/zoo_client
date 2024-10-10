@@ -490,30 +490,37 @@ const HomePage = () => {
                         <div className={'bg_green p-5 color_white position-relative w-100'}>
                             <h3 className={'text-center '}>{t('VISITORS')}</h3>
                             <br/>
+                            <div  style={{top: '0', right: '0', position: 'absolute', width:'20%'}} >
                             <img
                                 src="/snake.png"
                                 alt="corner image"
-                                className="position-absolute"
-                                style={{top: '-13px', right: '0'}}
+                                className={'img-fluid'}
                             />
+                            </div>
+                            <div  style={{bottom: '0', right: '0', position: 'absolute', width:'25%'}}>
                             <img
                                 src="/giraf.png"
                                 alt="corner image"
-                                className="position-absolute"
-                                style={{bottom: '0', right: '0'}}
+                                className={'img-fluid'}
                             />
-                            <div>{t('INFO_BEFORE_VISIT')}</div>
-                            <div className={'color_yellow'}>{t('INFO_1')}&nbsp; <img src={'/icons/arrow_gold.svg'}/>
                             </div>
-                            <div className={'color_yellow'}>{t('INFO_2')}&nbsp; <img src={'/icons/arrow_gold.svg'}/>
+                            <div className={'mb-2'}>{t('INFO_BEFORE_VISIT')}</div>
+                            <div className={'color_yellow mb-2'}>{t('INFO_1')}&nbsp; <img src={'/icons/arrow_gold.svg'}/>
                             </div>
-                            <div className={'color_yellow'}>{t('INFO_3')}&nbsp; <img src={'/icons/arrow_gold.svg'}/>
+                            <div className={'color_yellow mb-2'}>{t('INFO_2')}&nbsp; <img src={'/icons/arrow_gold.svg'}/>
+                            </div>
+                            <div className={'color_yellow mb-2'}>
+                                <Link to={'/questions'}>{t('INFO_3')}&nbsp; <img src={'/icons/arrow_gold.svg'}/></Link>
                             </div>
                             <br/>
-                            <div><img src={'/icons/map-marker-alt.svg'} alt={'map'}/>&nbsp; {t('HOW_TO')}</div>
+                            <div>
+                                <Link to={'/contacts'}>
+                                    <img src={'/icons/map-marker-alt.svg'} alt={'map'}/>&nbsp; {t('HOW_TO')}
+                                </Link>
+                            </div>
                             <br/>
                             <br/>
-                            <div>{t('MAP_DIRECTIONS')}&nbsp; <img src={'/icons/arrow_gold.svg'}/></div>
+                            <div> <Link to={'/map'}>{t('MAP_DIRECTIONS')}&nbsp; <img src={'/icons/arrow_gold.svg'}/></Link></div>
                         </div>
                     </Col>
                 </Row>
@@ -524,53 +531,56 @@ const HomePage = () => {
                         )
                         .slice(0, 4) // Get the first four events after filtering
                         .map((event) => {
-                            // const eventDate = new Date(event.start_date_event);
-                            // const options = {month: 'long', day: 'numeric'}; // Format options for month and day
-                            // const formattedDate = eventDate.toLocaleDateString('ro-RO', options); // Change locale as needed
-
                             const eventDate = new Date(event.start_date_event);
                             const day = eventDate.getDate(); // Extract day
                             const month = eventDate.toLocaleDateString('ro-RO', {month: 'long'}); // Extract month with long format
-
-
                             return (
-                                <Col xs={12} md={3} key={event.id} className={'mb-4'}>
+                                <Col xs={12} md={3} key={event.id} className="mb-4">
                                     <div
-                                        className={'' +
+                                        className={
                                             'bg_green ' +
-                                            'p-3 ' +
                                             'text-center ' +
-                                            'color_white ' +
-                                            'd-flex ' +
-                                            'flex-column ' +
-                                            'justify-content-between ' +
-                                            'min-height-262'}>
-                                        <Row>
+                                            'color_white '
+                                        }
+                                        style={{padding: '10px'}}
+                                    >
+                                        <div style={{position: 'relative', height: '240px'}}>
+                                            <img
+                                                src={`${import.meta.env.VITE_URL}/${event.img}`}
+                                                alt="img"
+                                                style={{width: '100%', height: '100%', objectFit: 'cover'}}
+                                            />
                                             <div
+                                                className="bg_yellow"
                                                 style={{
-                                                    backgroundColor: 'yellow',
-                                                    backgroundImage: `url(${import.meta.env.VITE_URL}/${event.img})`,
-                                                    backgroundSize: 'cover',
-                                                    backgroundPosition: 'center',
-                                                    height: '240px',
-                                                    width: '100%'
-                                                }}>
-                                                <Col xs={7} md={5}>
-                                                    &nbsp;
-                                                </Col>
-                                                <Col xs={5} md={6} className={'bg_yellow'}>
-                                                    <strong>{day}<br/>{month}</strong>
-                                                </Col>
+                                                    width: '40%',
+                                                    padding: '5px',
+                                                    position: 'absolute',
+                                                    top: '2%',   // Align to the top
+                                                    right: '0', // Align to the right
+                                                }}
+                                            >
+                                                <div style={{textAlign: 'center'}}>
+                                                    {day}
+                                                    <br/>
+                                                    {month}
+                                                </div>
                                             </div>
-                                        </Row>
+                                        </div>
                                         <br/>
-                                        <strong style={{minHeight: '80px'}}>{event[`title_${language}`]}</strong>
+                                        <strong style={{minHeight: '80px',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center'}}>
+                                            {event[`title_${language}`]}
+                                        </strong>
                                     </div>
                                 </Col>
                             );
                         })}
-                    <br/>
+                    <br />
                 </Row>
+
                 <br/>
                 <div className={'text-center'}><Link to={'/events'}>{t('ALL_EVENTS')} &nbsp;
                     <img src={'/icons/arrow_green.svg'} alt={'arrow'}/></Link>
