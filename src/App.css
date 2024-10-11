@@ -183,9 +183,7 @@
 
 .bg_banner_green {
     background: url("/bg_green_baner.png") no-repeat center bottom;
-    /*background-size:cover;*/
-
-    /*background-size: auto;*/
+    background-size:contain;
 }
 
 .bg_green {
