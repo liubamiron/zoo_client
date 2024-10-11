@@ -178,10 +178,13 @@
 
 .bg_banner {
     background: url("/banner.svg") no-repeat center top;
+    background-size:contain;
 }
 
 .bg_banner_green {
     background: url("/bg_green_baner.png") no-repeat center bottom;
+    background-size: contain;
+
 }
 
 .bg_green {

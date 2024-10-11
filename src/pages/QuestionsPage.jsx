@@ -79,7 +79,7 @@ function QuestionsPage() {
                     ))}
 
                 </Row>
-
+            </div>
                 <div className={'bg_shape2 pt-5'}>
                     <div className={'container'}>
                         <h2 className={'mt-5 mb-5 text-center'}>{t('NOT_FOUND_ANSWER')}</h2>
@@ -119,7 +119,6 @@ function QuestionsPage() {
                 </div>
 
             </div>
-        </div>
     );
 }
 

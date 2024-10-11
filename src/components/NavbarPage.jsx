@@ -62,7 +62,7 @@ function NavbarPage() {
                                     <img src="/icons/linkedin.svg" alt="LinkedIn" className="social-icon" />
                                 </a>
                             </div>
-                               <LanguagePopover />
+                            <LanguagePopover />
                         </Nav>
                     </Navbar.Collapse>
 
