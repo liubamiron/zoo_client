@@ -8,7 +8,7 @@ function Footer() {
 
     return (
 <>
-        <div style={{paddingTop: '40px', textAlign: 'center'}}>
+        <div style={{paddingTop: '40px', textAlign: 'center'}} className={'bg_bone'}>
             <br/>
             <Container>
             <br/>

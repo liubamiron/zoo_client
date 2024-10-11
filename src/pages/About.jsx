@@ -97,14 +97,14 @@ const About = () => {
             <div className="container">
                 <h1 className={'text-center margin_top_85_40 color_green f_montserrat f_size_42'}>{t('ABOUT_ZOO')}</h1>
                 <Row className={'margin_top_40'}>
-                    <Col>
+                    <Col xs={12} md={6}>
                         <div className={"bg_green m-4"} style={{borderRadius: '88px',}}>
                             <img src={'/zoo_history_about.jpg'}
                                  style={{borderRadius: '78px', paddingLeft: '30px', width: '100%'}}
                                  className={'img-fluid'} alt={'zoo'}/>
                         </div>
                     </Col>
-                    <Col>
+                    <Col  xs={12} md={6}>
                         <div className={"m-4"}>
                             <h1 className={'text-center mt-4'}>{t('TITLE_ABOUT')}</h1>
                             <p className={'margin_top_85_40 lh_27'}>{t('ABOUT_2')}</p>

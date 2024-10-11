@@ -190,6 +190,9 @@
     background: #0A4D1EFC;
 }
 
+.bg_bone {
+    background: #e7ece6;
+}
 .bg_yellow_green {
     background: #0A4D1EFC url("/yellow_bg.png") no-repeat center bottom;
     background-size: cover;

@@ -1,6 +1,5 @@
-import {Button, Col, Container, Nav, Navbar, NavDropdown, Row} from "react-bootstrap";
+import {Button, Col, Container, Nav, Navbar, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
-import {Dropdown} from "react-bootstrap";
 import LanguagePopover from "./LanguagePopover";
 import {useTranslation} from "../providers/index.js";
 
@@ -65,7 +64,6 @@ function NavbarPage() {
                             <LanguagePopover />
                         </Nav>
                     </Navbar.Collapse>
-
                 </Container>
             </Navbar>
         </div>
