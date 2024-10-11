@@ -71,13 +71,13 @@ function NavbarPage() {
 
                         {isMobile ? (
                             <Nav className="ms-auto">
-                                <Row className={'mt-3'}>
-                                    <Col className="text_white"> <img src="/icons/phone.svg" alt="Phone Icon" className="phone-icon"/>&nbsp;
-                                        <span >(022) 76-37-33&nbsp;</span>
-                                    </Col>
-                                    <Col>
-                                        <div className="social-icons">
-                                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                                <div className="text_white d-flex align-items-center justify-content-start mt-3">
+                                    <img src="/icons/phone.svg" alt="Phone Icon" className="phone-icon"/>&nbsp;
+                                    <span>(022) 76-37-33&nbsp;</span>
+                                </div>
+                                <div>
+                                    <div className="social-icons d-flex align-items-center justify-content-end">
+                                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                                                 <img src="/icons/facebook-f.svg" alt="Facebook"
                                                      className="social-icon"/>
                                             </a>
@@ -92,8 +92,8 @@ function NavbarPage() {
                                                 <img src="/icons/linkedin.svg" alt="LinkedIn" className="social-icon"/>
                                             </a>
                                         </div>
-                                    </Col>
-                                </Row>
+                                    </div>
+                                {/*</Row>*/}
                                 <Dropdown className={'mt-4'}>
                                     <Dropdown.Toggle variant="outline-success" id="dropdown-basic">{language}&nbsp;</Dropdown.Toggle>
                                     <Dropdown.Menu style={{position: 'absolute'}}>
