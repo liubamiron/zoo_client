@@ -2,8 +2,10 @@ import {Link, useNavigate, useParams} from "react-router-dom";
 import {useTranslation} from "../providers/index.js";
 import {useEffect, useState} from "react";
 import {fetchAnimalData, fetchAnimalDataById, fetchEventsData} from "../utils/apiCalls.js";
-import {Accordion, Button, Col, Image, Row} from "react-bootstrap";
+import {Accordion, Button, Card, Col, Image, Row} from "react-bootstrap";
 import SubscribeNewsForm from "../components/SubscribeNewsForm.jsx";
+import {Swiper, SwiperSlide} from "swiper/react";
+import {Navigation} from "swiper/modules";
 
 
 const Animal = () => {
@@ -13,6 +15,7 @@ const Animal = () => {
     const [animalsData, setAnimalsData] = useState([]);
     const [groupedAnimals, setGroupedAnimals] = useState([]);
     const navigate = useNavigate();
+    const isMobile = window.matchMedia("only screen and (max-width: 575.98px)").matches;
 
     // Get animal by id
     useEffect(() => {
@@ -222,18 +225,38 @@ const Animal = () => {
                         <h2 className={'mt-5 mb-5 text-center'}>
                             {t('OTHER_SPECIES_FROM')}&nbsp;{groupedAnimals[0]?.[`clas_${language}`]}
                         </h2>
-                        {groupedAnimals?.map((animal) => (
-                            <Col xs={6} md={4} key={animal.id}>
-                                <Image
-                                    src={`${import.meta.env.VITE_URL}/${animal.img_1}`}
-                                    alt={animal[`name_${language}`]}
-                                    className={'img-fluid'}
-                                    style={{height: '100%', objectFit: 'cover'}}
-                                />
-                                <i className={'color_green'}>{animal[`name_${language}`]}</i>
-                                <p className={'mt-1'}>{animal[`descr_short_${language}`]}</p>
-                            </Col>
-                        ))}
+                        <div className={'margin_top_40'}>
+                            <Swiper
+                                spaceBetween={30}
+                                slidesPerView={isMobile ? 1 : 4}
+                                navigation={true}
+                                modules={[Navigation]}
+                                style={{padding: '0 16px'}} // Slider padding
+                            >
+                                <Row>
+                                    {groupedAnimals?.map((animal) => (
+                                        <Col xs={12} md={4} key={animal.id}>
+                                            <SwiperSlide key={`slide-${animal.id}`}>
+                                                <Link to={`/animals/${animal.id}`}>
+                                                    <Card className={'bg_light_green'}>
+                                                        <Card.Img variant="top"
+                                                                  src={`${import.meta.env.VITE_URL}/${animal.img_1}`}
+                                                                  alt="animal"
+                                                                  className={'img-fluid'}
+                                                                  style={{height: '230px'}}
+                                                        />
+                                                        <Card.Footer>
+                                                            <i className={'color_green'}>{animal[`name_${language}`]}</i>
+                                                            <p className={'mt-1'}>{animal[`descr_short_${language}`]}</p>
+                                                        </Card.Footer>
+                                                    </Card>
+                                                </Link>
+                                            </SwiperSlide>
+                                        </Col>
+                                    ))}
+                                </Row>
+                            </Swiper>
+                        </div>
                     </Row>
                     <br/>
                     <br/>
