@@ -85,14 +85,14 @@ const About = () => {
                 <div className="bg_banner_green height_280">
                     &nbsp;
                 </div>
-                <div className={'mt-4 text-center d-flex justify-content-center align-items-center mb-4'}>
+            </div>
+            <div className={'mt-4 text-center d-flex justify-content-center align-items-center mb-4'}>
                     <span>
                         <Link to={'/'}>
                             <img src={'/house.svg'} className={'img-fluid'} alt={'house'} style={{marginRight: '5px'}}/>
                             ZOO
                         </Link>&nbsp;&#62;&nbsp;<Link to={'/about'}>{t('ABOUT_ZOO')}</Link>
                     </span>
-                </div>
             </div>
             <div className="container">
                 <h1 className={'text-center margin_top_85_40 color_green f_montserrat f_size_42'}>{t('ABOUT_ZOO')}</h1>
