@@ -1,11 +1,12 @@
 import {useTranslation} from "../providers/index.js";
-import {Button, Card, Col, Form, Row} from "react-bootstrap";
+import {Button, Card, Col, Row} from "react-bootstrap";
 import {zoo_facilities} from "../components/Constants.jsx";
 import {useEffect, useState} from "react";
-import {createEmailSubscribe, fetchAnimalData, fetchReviewsData, fetchTypeAnimals} from "../utils/apiCalls.js";
+import {fetchAnimalData, fetchReviewsData, fetchTypeAnimals} from "../utils/apiCalls.js";
 import {Navigation} from "swiper/modules";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Link} from "react-router-dom";
+import SubscribeNewsForm from "../components/SubscribeNewsForm.jsx";
 
 const About = () => {
     const {t, language} = useTranslation();
@@ -13,8 +14,6 @@ const About = () => {
     const [diasappearingAnimals, setDiasappearingAnimals] = useState([]);
     const [typeAnimals, setTypeAnimals] = useState([]);
     const [reviews, setReviews] = useState([]);
-    const [emailUser, setEmailUser] = useState('');
-    const [responseMessage, setResponseMessage] = useState(''); // To store the server response
 
     const isMobile = window.matchMedia("only screen and (max-width: 575.98px)").matches;
 
@@ -67,17 +66,6 @@ const About = () => {
     //get number of type animals
     let nrType = typeAnimals?.length
 
-    // send email address for subscribe
-    const handleSubmit = async (e) => {
-        e.preventDefault(); // Prevent default form submission behavior
-        try {
-            const data = await createEmailSubscribe({email: emailUser}); // Call the createEmailSubscribe function
-            setResponseMessage(data.message || 'Email sent successfully!'); // Set the response message
-        } catch (error) {
-            console.error('Error:', error);
-            setResponseMessage('Failed to send email. Please try again.');
-        }
-    };
 
     return (
         <div>
@@ -86,9 +74,9 @@ const About = () => {
                     &nbsp;
                 </div>
             </div>
-            <div className={'mt-4 text-center d-flex justify-content-center align-items-center mb-4'}>
-                    <span>
-                        <Link to={'/'}>
+            <div className={'mt-4 text-center d-flex justify-content-center align-items-center mb-4 color_green'}>
+                <span className="d-flex align-items-center">
+                    <Link to={'/'} className="d-flex align-items-center">
                             <img src={'/house.svg'} className={'img-fluid'} alt={'house'} style={{marginRight: '5px'}}/>
                             ZOO
                         </Link>&nbsp;&#62;&nbsp;<Link to={'/about'}>{t('ABOUT_ZOO')}</Link>
@@ -263,35 +251,7 @@ const About = () => {
                     ))}
                 </Row>
                 <br/>
-                <Row className={'bg_green p-3 mt-5'}>
-                    <Col>
-                        <h1 className={'color_white'}>{t('SUBSCRIBE_NEWS')}</h1>
-                    </Col>
-                    <Col>
-                        <Form onSubmit={handleSubmit}>
-                            <Row className={'color_white mt-4'}>
-                                <Col>
-                                    <Form.Group controlId="email">
-                                        <Form.Control
-                                            type="email"
-                                            value={emailUser}
-                                            onChange={(e) => setEmailUser(e.target.value)} // Update state with the email input
-                                            placeholder={t('ENTER_EMAIL')} // Placeholder from translations
-                                            required // Make sure the input is required
-                                        />
-                                    </Form.Group>
-                                    {responseMessage && <p>{responseMessage}</p>}
-                                </Col>
-                                <Col>
-                                    <Button variant={'outline-warning'} type="submit">{t('SUBSCRIBE')}</Button>
-                                </Col>
-
-                                <div className={'mt-2 '} style={{fontSize: '12px'}}>{t('ADDITIONAL_TEXT_1')}</div>
-                                <div style={{fontSize: '12px'}}>{t('ADDITIONAL_TEXT_2')}</div>
-                            </Row>
-                        </Form>
-                    </Col>
-                </Row>
+                <SubscribeNewsForm/>
             </div>
 
         </div>

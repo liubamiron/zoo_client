@@ -219,7 +219,7 @@ function PostsPage() {
                                         style={{margin: '5px'}}
                                         onClick={() => handleTagClick(item.id)} // Handle tag click
                                     >
-                                        <span>{item[`name_${language}`]}</span>
+                                        <span>{item?.[`name_${language}`]}</span>
                                         </Button>
                                 </span>
                                 ))}

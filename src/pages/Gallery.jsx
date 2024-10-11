@@ -6,6 +6,7 @@ import "react-photo-album/rows.css";
 import PaginationComponent from "../components/PaginationComponent.jsx";
 import {useTranslation} from "../providers/index.js";
 import {createEmailSubscribe, fetchAnimalData, fetchTypeAnimals} from "../utils/apiCalls.js";
+import SubscribeNewsForm from "../components/SubscribeNewsForm.jsx";
 
 function Gallery() {
     const {t, language} = useTranslation();
@@ -84,14 +85,15 @@ function Gallery() {
                 <div className="bg_banner_green height_280">
                     &nbsp;
                 </div>
-                <div className={'mt-4 text-center d-flex justify-content-center align-items-center mb-4'}>
-                <span> <Link to={'/'}>
+            </div>
+            <div className="mt-4 text-center d-flex justify-content-center align-items-center mb-4 color_green">
+                <span className="d-flex align-items-center">
+                    <Link to="/" className="d-flex align-items-center">
                     <img src={'/house.svg'} className={'img-fluid'} alt={'house'} style={{marginRight: '5px'}}/>
                     ZOO</Link>&nbsp;&#62;&nbsp;{t('GALLERY')}
                 </span>
-                </div>
             </div>
-        <br/>
+            <br/>
             <h2 className={"mt-4 mb-4 text-center color_green"}>{t('ZOO_GALLERY')}</h2>
             <p className={'text-center'}>{t('ALL_ANIMALS_GALLERY')}</p>
             <Row className={'margin_top_40'}>
@@ -129,35 +131,7 @@ function Gallery() {
             <br/>
             <br/>
             <div className={'container mt-5'}>
-                <Row  className={'bg_green p-3 mt-5'}>
-                    <Col>
-                        <h1 className={'color_white'}>{t('SUBSCRIBE_NEWS')}</h1>
-                    </Col>
-                    <Col>
-                        <Form onSubmit={handleSubmit}>
-                            <Row className={'color_white mt-4'}>
-                                <Col>
-                                    <Form.Group controlId="email">
-                                        <Form.Control
-                                            type="email"
-                                            value={emailUser}
-                                            onChange={(e) => setEmailUser(e.target.value)} // Update state with the email input
-                                            placeholder={t('ENTER_EMAIL')} // Placeholder from translations
-                                            required // Make sure the input is required
-                                        />
-                                    </Form.Group>
-                                    {responseMessage && <p>{responseMessage}</p>}
-                                </Col>
-                                <Col>
-                                    <Button variant={'outline-warning'} type="submit">{t('SUBSCRIBE')}</Button>
-                                </Col>
-
-                                <div className={'mt-2 '} style={{fontSize: '12px'}}>{t('ADDITIONAL_TEXT_1')}</div>
-                                <div style={{fontSize: '12px'}}>{t('ADDITIONAL_TEXT_2')}</div>
-                            </Row>
-                        </Form>
-                    </Col>
-                </Row>
+                <SubscribeNewsForm/>
             </div>
         </div>
     );

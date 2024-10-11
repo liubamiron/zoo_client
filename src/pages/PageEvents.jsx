@@ -86,14 +86,14 @@ function PageEvents() {
         <div>
             <div className={"bg_banner"}>
                 <div className="bg_banner_green height_280">&nbsp;</div>
-                <div className={'mt-4 text-center d-flex justify-content-center align-items-center mb-4'}>
-                    <span>
-                        <Link to={'/'}>
-                            <img src={'/house.svg'} className={'img-fluid'} alt={'house'} style={{ marginRight: '5px' }} />
+            </div>
+            <div className="mt-4 text-center d-flex justify-content-center align-items-center mb-4 color_green">
+                <span className="d-flex align-items-center">
+                    <Link to="/" className="d-flex align-items-center">
+                            <img src={'/house.svg'} className={'img-fluid'} alt={'house'} style={{marginRight: '5px'}}/>
                             ZOO
                         </Link>&nbsp;&#62;&nbsp;<Link to={'/events'}>{t('EVENTS')}</Link>
                     </span>
-                </div>
             </div>
             <div className={'container'}>
                 <h2 className={'text-center'}>{t('ALL_EVENTS_TITLE')}</h2>
@@ -106,7 +106,7 @@ function PageEvents() {
                         <div>
                             <InputGroup>
                                 <InputGroup.Text className="custom-icon input-icon">
-                                    <img src="/icons/calendar.svg" alt="Calendar" width="20px" />
+                                    <img src="/icons/calendar.svg" alt="Calendar" width="20px"/>
                                 </InputGroup.Text>
                                 <DatePicker
                                     className="custom-datepicker"
@@ -144,7 +144,7 @@ function PageEvents() {
                         {currentEvents
                             .map((event, index) => {
                                 const eventDate = new Date(event.start_date_event);
-                                const options = { month: 'long', day: 'numeric' }; // Format options for month and day
+                                const options = {month: 'long', day: 'numeric'}; // Format options for month and day
                                 const formattedDate = eventDate.toLocaleDateString('ro-RO', options); // Change locale as needed
 
                                 return (
@@ -154,8 +154,9 @@ function PageEvents() {
                                                 index === 0 ? 'bg_green color_white' : 'bg_light_green color_green'
                                             }`}
                                         >
-                                            <Row >
-                                                <Col xs={12} md={7} className="d-flex flex-column justify-content-between h-100">
+                                            <Row>
+                                                <Col xs={12} md={7}
+                                                     className="d-flex flex-column justify-content-between h-100">
                                                     <div
                                                         style={{
                                                             backgroundColor: 'yellow',
@@ -166,21 +167,22 @@ function PageEvents() {
                                                             width: '100%'
                                                         }}
                                                     >
-                                                        <Row style={{ margin: 'unset' }} className={'pt-2'}>
+                                                        <Row style={{margin: 'unset'}} className={'pt-2'}>
                                                             <Col xs={7} md={7}>
                                                                 &nbsp;
                                                             </Col>
                                                             <Col xs={5} md={5}>
                                                                 <div className={'bg_yellow'}>
                                                                     <strong>{formattedDate}</strong>
-                                                                    <br />
+                                                                    <br/>
                                                                     &nbsp;
                                                                 </div>
                                                             </Col>
                                                         </Row>
                                                     </div>
                                                 </Col>
-                                                <Col xs={12} md={5} className="d-flex flex-column justify-content-between ">
+                                                <Col xs={12} md={5}
+                                                     className="d-flex flex-column justify-content-between ">
                                                     <h5>{event[`title_${language}`]}</h5>
                                                     <p>{event[`short_description_${language}`]}</p>
                                                     <div>{t("MORE_INFO")}</div>
@@ -190,7 +192,7 @@ function PageEvents() {
                                     </Col>
                                 );
                             })}
-                        <br />
+                        <br/>
                     </Row>
                 </div>
                 {/* Pagination Controls */}
@@ -200,30 +202,30 @@ function PageEvents() {
                     onPageChange={setCurrentPage}
                 />
                 <br/>
-                <Row  className={'bg_green p-3 mt-5'}>
+                <Row className={'bg_green p-3 mt-5'}>
                     <Col>
                         <h1 className={'color_white'}>{t('SUBSCRIBE_NEWS')}</h1>
                     </Col>
                     <Col>
                         <Form onSubmit={handleSubmit}>
-                        <Row className={'color_white mt-4'}>
-                            <Col>
-                                <Form.Group controlId="nameEN">
-                                    <Form.Control
-                                        type="email"
-                                        value={emailUser}
-                                        onChange={(e) => setEmailUser(e.target.value)} // Use a function to update state
-                                        placeholder={t('ENTER_EMAIL')}
-                                    />
-                                </Form.Group>
-                                {responseMessage && <p>{responseMessage}</p>}
-                            </Col>
-                            <Col>
-                                <Button variant={'outline-warning'} type={'submit'}>{t('SUBSCRIBE')}</Button>
-                            </Col>
-                            <div className={'mt-2 '} style={{fontSize: '12px'}}>{t('ADDITIONAL_TEXT_1')}</div>
-                            <div style={{fontSize: '12px'}}>{t('ADDITIONAL_TEXT_2')}</div>
-                        </Row>
+                            <Row className={'color_white mt-4'}>
+                                <Col>
+                                    <Form.Group controlId="nameEN">
+                                        <Form.Control
+                                            type="email"
+                                            value={emailUser}
+                                            onChange={(e) => setEmailUser(e.target.value)} // Use a function to update state
+                                            placeholder={t('ENTER_EMAIL')}
+                                        />
+                                    </Form.Group>
+                                    {responseMessage && <p>{responseMessage}</p>}
+                                </Col>
+                                <Col>
+                                    <Button variant={'outline-warning'} type={'submit'}>{t('SUBSCRIBE')}</Button>
+                                </Col>
+                                <div className={'mt-2 '} style={{fontSize: '12px'}}>{t('ADDITIONAL_TEXT_1')}</div>
+                                <div style={{fontSize: '12px'}}>{t('ADDITIONAL_TEXT_2')}</div>
+                            </Row>
                         </Form>
                     </Col>
                 </Row>

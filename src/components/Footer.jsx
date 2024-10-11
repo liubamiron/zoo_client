@@ -30,9 +30,9 @@ function Footer() {
                     <Col xs={12} md={2} className="mb-4 mb-md-0">
                         <h5 style={{color: '#0A4D1EFC'}}>{t('NAVIGATION')}</h5>
                         <ul className="list-unstyled">
-                            <li><Link to="/questions">{t('RULES_ZOO')}</Link></li>
+                            <li><Link to="/about">{t('ABOUT')}</Link></li>
                             <li><Link to="/map">{t('DIRECTION')}</Link></li>
-                            <li><Link to="/contacts">{t('VACANCY')}</Link></li>
+                            {/*<li><Link to="/contacts">{t('VACANCY')}</Link></li>*/}
                             <li><Link to="/questions">{t('FAQ')}</Link></li>
                         </ul>
                     </Col>
@@ -42,8 +42,8 @@ function Footer() {
                         <h5 style={{color: '#0A4D1EFC'}}>{t('RESOURCES')}</h5>
                         <ul className="list-unstyled">
                             <li><Link to="/tender">{t('GOS_BUY')}</Link></li>
-                            <li><Link to="/tender">{t('PUB_INFO')}</Link></li>
-                            <li><Link to="/">{t('SITES_GOUVERMENT')}</Link></li>
+                            <li><Link to="/gallery">{t('GALLERY')}</Link></li>
+                            <li><Link to="/events">{t('EVENTS')}</Link></li>
 
                         </ul>
                     </Col>
