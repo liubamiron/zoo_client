@@ -32,14 +32,14 @@ function NavbarPage() {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" className="mobile-menu-toggle" />
                     <Navbar.Collapse id="basic-navbar-nav" className={'navbar_menu'}>
                         <Nav className="me-auto align-content-center">
-                            <Nav.Link href="/" className="text_white">ZOO</Nav.Link>
-                            <Nav.Link href="/animals" className="text_white">{t('ANIMALS')}</Nav.Link>
-                            <Nav.Link href="/gallery" className="text_white">{t('GALLERY')}</Nav.Link>
-                            <Nav.Link href="/events" className="text_white">{t('EVENTS')}</Nav.Link>
-                            <Nav.Link href="/questions" className="text_white">{t('RULES')}</Nav.Link>
-                            <Nav.Link href="/contacts" className="text_white">{t('CONTACTS')}</Nav.Link>
-                            <Nav.Link href="/about" className="text_white">{t('ABOUT')}</Nav.Link>
-                            <Nav.Link href="/news" className="text_white">{t('NEWS')}</Nav.Link>
+                            <Link to="/" className="text_white">ZOO</Link>
+                            <Link to="/animals" className="text_white">{t('ANIMALS')}</Link>
+                            <Link to="/gallery" className="text_white">{t('GALLERY')}</Link>
+                            <Link to="/events" className="text_white">{t('EVENTS')}</Link>
+                            <Link to="/questions" className="text_white">{t('RULES')}</Link>
+                            <Link to="/contacts" className="text_white">{t('CONTACTS')}</Link>
+                            <Link to="/about" className="text_white">{t('ABOUT')}</Link>
+                            <Link to="/news" className="text_white">{t('NEWS')}</Link>
                             {/*<Nav.Link href="/login" className="text_white">Авторизация</Nav.Link>*/}
                         </Nav>
                         <Nav className="ms-auto align-items-center">
