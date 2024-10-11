@@ -59,7 +59,7 @@ function Footer() {
                     </Col>
                 </Row>
                 <hr/>
-                <h6 className={'text-center'}> © 2024 Gradina Zoologica. {t('Все права защищены')} </h6>
+                <h6 className={'text-center'}> © 2024 Gradina Zoologica. {t('RESERVED')} </h6>
                 <br/>
             </div>
             </Container>

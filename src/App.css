@@ -116,11 +116,6 @@
     background-color: #0A4D1E;
 }
 
-.language_button .dropdown-item:hover {
-    background-color: lightgray; /* Green background color on hover */
-    color: #fff; /* White text color on hover */
-}
-
 .language_button .dropdown-menu {
     min-width: 90px; /* Ensure the menu does not shrink below this width */
 }
@@ -443,11 +438,11 @@
     }
 
     .show-desktop {
-        display: none;
+        display: none!important;
     }
 
     .show_mobile {
-        display: block;
+        display: block!important;
     }
 
     .pad_top_55_15 {
