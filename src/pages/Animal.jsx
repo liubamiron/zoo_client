@@ -247,7 +247,6 @@ const Animal = () => {
                                                         />
                                                         <Card.Footer>
                                                             <i className={'color_green'}>{animal[`name_${language}`]}</i>
-                                                            <p className={'mt-1'}>{animal[`descr_short_${language}`]}</p>
                                                         </Card.Footer>
                                                     </Card>
                                                 </Link>
