@@ -40,6 +40,7 @@ function NavbarPage() {
                             <Link to="/contacts" className="nav-link text_white">{t('CONTACTS')}</Link>
                             <Link to="/about" className="nav-link text_white">{t('ABOUT')}</Link>
                             <Link to="/news" className="nav-link text_white">{t('NEWS')}</Link>
+                            <Link to="/login" className="nav-link text_white">Login</Link>
                             {/*<Nav.Link href="/login" className="text_white">Авторизация</Nav.Link>*/}
                         </Nav>
                         <Nav className="ms-auto align-items-center">
