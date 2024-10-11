@@ -748,7 +748,7 @@ const HomePage = () => {
                     <br/>
                     <div className={'text-center'}>
                         <Link to={'/reviews'}>
-                            {t('SEE_ALL')}&nbsp;
+                            {t('SEE_ALL_REVIEWS')}&nbsp;
                             <img src={'/icons/arrow_green.svg'} alt={'arrow'}/>
                         </Link>
                     </div>
