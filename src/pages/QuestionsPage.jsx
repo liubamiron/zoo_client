@@ -2,7 +2,7 @@ import {Link} from "react-router-dom";
 import {useTranslation} from "../providers/index.js";
 import {useEffect, useState} from "react";
 import {getAllFAQ} from "../utils/apiCalls.js";
-import {Accordion, Button, Col, Form, Row} from "react-bootstrap";
+import {Accordion, Button, Col, Row} from "react-bootstrap";
 import SubscribeNewsForm from "../components/SubscribeNewsForm.jsx";
 
 

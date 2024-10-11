@@ -223,11 +223,11 @@ const Animal = () => {
                             {t('OTHER_SPECIES_FROM')}&nbsp;{groupedAnimals[0]?.[`clas_${language}`]}
                         </h2>
                         {groupedAnimals?.map((animal) => (
-                            <Col xs={12} md={4} key={animal.id}>
+                            <Col xs={6} md={4} key={animal.id}>
                                 <Image
                                     src={`${import.meta.env.VITE_URL}/${animal.img_1}`}
                                     alt={animal[`name_${language}`]}
-                                    fluid
+                                    className={'img-fluid'}
                                     style={{height: '100%', objectFit: 'cover'}}
                                 />
                                 <i className={'color_green'}>{animal[`name_${language}`]}</i>

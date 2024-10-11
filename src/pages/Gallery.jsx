@@ -1,11 +1,11 @@
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {Button, Col, Form, Row} from "react-bootstrap";
+import {Button, Row} from "react-bootstrap";
 import { RowsPhotoAlbum } from "react-photo-album";
 import "react-photo-album/rows.css";
 import PaginationComponent from "../components/PaginationComponent.jsx";
 import {useTranslation} from "../providers/index.js";
-import {createEmailSubscribe, fetchAnimalData, fetchTypeAnimals} from "../utils/apiCalls.js";
+import {fetchAnimalData, fetchTypeAnimals} from "../utils/apiCalls.js";
 import SubscribeNewsForm from "../components/SubscribeNewsForm.jsx";
 
 function Gallery() {
@@ -13,11 +13,8 @@ function Gallery() {
     const [allAnimalsData, setAllAnimals] = useState([]);
     const [typeAnimals, setTypeAnimals] = useState([]);
     const [selectedType, setSelectedType] = useState(null);
-    const [emailUser, setEmailUser] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 14;
-    const [responseMessage, setResponseMessage] = useState('');
-
 
     // Get all animals
     useEffect(() => {
@@ -65,19 +62,6 @@ function Gallery() {
         height: (index % 3 === 0) ? 100 : 200,  // Set varying height based on index
         alt: item[`name_${language}`],
     }));
-
-    // send email address for subscribe
-    const handleSubmit = async (e) => {
-        e.preventDefault(); // Prevent default form submission behavior
-
-        try {
-            const data = await createEmailSubscribe({ email: emailUser }); // Call the createEmailSubscribe function
-            setResponseMessage(data.message || 'Email sent successfully!'); // Set the response message
-        } catch (error) {
-            console.error('Error:', error);
-            setResponseMessage('Failed to send email. Please try again.');
-        }
-    };
 
     return (
         <div>
