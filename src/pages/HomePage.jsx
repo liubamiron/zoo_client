@@ -15,6 +15,7 @@ import 'swiper/css/pagination';
 import {Navigation} from 'swiper/modules';
 import {zoo_facilities} from "../components/Constants.jsx";
 import {Link} from "react-router-dom";
+import events from "./admin/Events.jsx";
 
 
 const HomePage = () => {
@@ -132,6 +133,8 @@ const HomePage = () => {
 
     // Get today's date in the 'YYYY-MM-DD' format
     const today = new Date().toISOString().split('T')[0];
+
+    
 // Filter events where today's date is within the start and end date
     const activeEvents = allEvents
         .filter(event => {
@@ -274,6 +277,7 @@ const HomePage = () => {
         </div>
     );
 
+    console.log('events', allEvents, activeEvents)
     return (
         <>
             <div className={'z2'}>
@@ -481,7 +485,7 @@ const HomePage = () => {
                                 <hr/>
                             </div>
                             <br/>
-                            <span>{t('All_EVENTS_TODAY')}&nbsp;<img src={'/icons/arrow_green.svg'}
+                            <span>{t('ALL_EVENTS_TODAY')}&nbsp;<img src={'/icons/arrow_green.svg'}
                                                                     alt={'arrow'}/></span>
                         </div>
                     </Col>
