@@ -36,7 +36,7 @@ function Footer() {
                                 <h5 style={{ color: '#0A4D1EFC' }}>{t('NAVIGATION')}</h5>
                                 <ul className="list-unstyled">
                                     <li><Link to="/about">{t('ABOUT')}</Link></li>
-                                    <li><Link to="/map">{t('DIRECTION')}</Link></li>
+                                    <li><Link to="/contacts">{t('CONTACTS_TITLE')}</Link></li>
                                     <li><Link to="/questions">{t('FAQ')}</Link></li>
                                 </ul>
                             </Col>

@@ -151,7 +151,7 @@
 }
 
 .z2 {
-    background: url('/main_banner.png') no-repeat;
+    background: url('/main_banner.JPG') no-repeat;
     background-size:cover;
     /*background-size:contain;*/
 }
@@ -172,8 +172,11 @@
 }
 
 .bg_banner {
-    background: url("/banner.svg") no-repeat center top;
+    /*background: url("/banner.svg") no-repeat center top;*/
+    background: url("/main_banner_3.JPG") no-repeat center top;
+    /*background: url("/zoo-3-home.svg") no-repeat center top;*/
     background-size:cover;
+    /*background-size:contain;*/
 }
 
 .bg_banner_green {

@@ -190,7 +190,7 @@ export const dictionary = {
         EVENTS: 'События',
         EVENTS_INFO: 'Предстоящие события в зоопарке',
         ALL_EVENTS: "Все события",
-        GARDEN: "Кишиневский ",
+        GARDEN: " ",
         ZOOLOGIC: "Зоопарк",
         CARD2_SLIDER_TITLE: 'Камерунская коза',
         CARD2_SLIDER_DESCRIPTION: 'Родиной этих карликовых коз ' +
